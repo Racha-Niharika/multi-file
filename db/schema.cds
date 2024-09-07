@@ -6,9 +6,9 @@ using {
 } from '@sap/cds/common';
 
 entity Files : cuid, managed {
-    key ID    : UUID;
+ 
     @title: 'File ID'
-    fid   : Association to one Hospital;
+    fid   : Association to Hospital;
     @Core.MediaType: mediaType
     content: LargeBinary;
     @Core.IsMediaType: true
@@ -21,7 +21,7 @@ entity Files : cuid, managed {
     
 }
 entity Hospital : cuid , managed  {
-key ID        : UUID;
+
     @title: 'HospitalID'
     hospital_id: String(5);
     @title: 'Hospital Name'

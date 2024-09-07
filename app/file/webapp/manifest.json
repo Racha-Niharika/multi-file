@@ -13,7 +13,7 @@
     "sourceTemplate": {
       "id": "@sap/generator-fiori:lrop",
       "version": "1.14.2",
-      "toolsId": "a67fdbcd-b8ae-4f23-a2c3-1cde5733da9a"
+      "toolsId": "c3b90fcb-d0ae-4c7a-856d-8b94fab32c06"
     },
     "dataSources": {
       "mainService": {
@@ -93,11 +93,6 @@
           "pattern": "Hospital({key}):?query:",
           "name": "HospitalObjectPage",
           "target": "HospitalObjectPage"
-        },
-        {
-          "pattern": "Hospital({key})/Files({key2}):?query:",
-          "name": "FilesObjectPage",
-          "target": "FilesObjectPage"
         }
       ],
       "targets": {
@@ -134,37 +129,20 @@
             "settings": {
               "editableHeaderContent": false,
               "contextPath": "/Hospital",
-              "navigation": {
-                "Files": {
-                  "detail": {
-                    "route": "FilesObjectPage"
-                  }
-                }
-              },
               "content": {
-                "header": {
-                  "actions": {
-                    "file": {
-                      "press": "file.ext.file.file.file",
-                      "visible": true,
-                      "enabled": true,
-                      "requiresSelection": false,
-                      "text": "multi-upload"
+                "body": {
+                    "sections": {
+                        "myCustomSection": {
+                            "template": "file.custom.fragment.uploadDoc",
+                            "title": "Upload Files",
+                            "position": {
+                                "placement": "After"
+                                
+                            }
+                        }
                     }
-                  }
                 }
-              }
             }
-          }
-        },
-        "FilesObjectPage": {
-          "type": "Component",
-          "id": "FilesObjectPage",
-          "name": "sap.fe.templates.ObjectPage",
-          "options": {
-            "settings": {
-              "editableHeaderContent": false,
-              "contextPath": "/Hospital/Files"
             }
           }
         }

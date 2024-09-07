@@ -3,10 +3,9 @@ sap.ui.require(
         'sap/fe/test/JourneyRunner',
         'file/test/integration/FirstJourney',
 		'file/test/integration/pages/HospitalList',
-		'file/test/integration/pages/HospitalObjectPage',
-		'file/test/integration/pages/FilesObjectPage'
+		'file/test/integration/pages/HospitalObjectPage'
     ],
-    function(JourneyRunner, opaJourney, HospitalList, HospitalObjectPage, FilesObjectPage) {
+    function(JourneyRunner, opaJourney, HospitalList, HospitalObjectPage) {
         'use strict';
         var JourneyRunner = new JourneyRunner({
             // start index.html in web folder
@@ -18,8 +17,7 @@ sap.ui.require(
             {
                 pages: { 
 					onTheHospitalList: HospitalList,
-					onTheHospitalObjectPage: HospitalObjectPage,
-					onTheFilesObjectPage: FilesObjectPage
+					onTheHospitalObjectPage: HospitalObjectPage
                 }
             },
             opaJourney.run

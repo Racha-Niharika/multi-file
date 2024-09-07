@@ -1,21 +1,15 @@
 using {miyasuta.media as db} from '../db/schema';
 
-service Attachments {
+service Attachments{
     entity Files as projection on db.Files;
-    action DownloadTemplate() returns String;
-    action UploadData() returns Boolean;
-    action fileUpload(mimeType: String, fileName: String, fileContent: String, fileExtension: String) returns Boolean;
-    action downloadFile() returns {
-        fileContent: String;
-        fileName: String;
-        mimeType: String;
-        fileExtension: String;
-    };
-    entity Hospital as projection on db.Hospital
+   
+    entity Hospital as projection on db.Hospital;
+    action Data() returns Boolean;
+  action Doc() returns Boolean;
 }
 
 annotate Attachments.Hospital with @odata.draft.enabled;
-//annotate Transport.Files with @odata.draft.enabled;
+//annotate Attachments.Files with @odata.draft.enabled;
 
 
 // Annotations for Bus entity
@@ -41,6 +35,10 @@ annotate Attachments.Hospital with @(
          {
             Label: 'no_of_patients',
             Value: no_of_patients
+        },
+        {
+             Label:'Files',
+             Value:Files 
         }
     ]
 );
@@ -78,13 +76,6 @@ annotate Attachments.Hospital with @(
             ID: 'GeneratedFacet1',
             Label: 'General Information',
             Target: '@UI.FieldGroup#BusTransport'
-        },
-        {
-            $Type: 'UI.ReferenceFacet',
-            ID: 'relatedFilesFacet',
-            Label: 'Related Files',
-            Target: 'Files/@UI.LineItem',
-            
         }
     ]
 );
@@ -94,59 +85,30 @@ annotate Attachments.Hospital with @(
 
 annotate Attachments.Files with @(
     UI.LineItem: [
-        {
-            Label: 'Product ID',
-            Value: fid_ID
-
+       {
+            $Type:'UI.DataField',
+            Label: 'Content',
+            Value: content
         },
         {
             $Type: 'UI.DataField',
             Value: fileName,
             Label: 'File Name'
-        },
-        {
-            $Type: 'UI.DataField',
-            Value: mediaType,
-            Label: 'Media Type'
-        },
-        {
-            $Type: 'UI.DataField',
-            Value: size,
-            Label: 'File Size'
-        },
-        {
-            $Type: 'UI.DataField',
-            Value: url,
-            Label: 'URL'
         }
     ],
     UI.FieldGroup #FileDetails: {
         $Type: 'UI.FieldGroupType',
         Data: [
-            {
-            Label: 'Files ID',
-            Value: fid_ID
+           {
+            $Type:'UI.DataField',
+            Label: 'Content',
+            Value: content
         },
-            {
-                $Type: 'UI.DataField',
-                Value: fileName,
-                Label: 'File Name'
-            },
-            {
-                $Type: 'UI.DataField',
-                Value: mediaType,
-                Label: 'Media Type'
-            },
-            {
-                $Type: 'UI.DataField',
-                Value: size,
-                Label: 'File Size'
-            },
-            {
-                $Type: 'UI.DataField',
-                Value: url,
-                Label: 'URL'
-            }
+         {
+            $Type:'UI.DataField',
+            Label: 'fileName',
+            Value: fileName
+        }
         ]
     },
     UI.Facets: [

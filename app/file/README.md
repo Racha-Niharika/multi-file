@@ -1,7 +1,7 @@
 ## Application Details
 |               |
 | ------------- |
-|**Generation Date and Time**<br>Fri Sep 06 2024 15:19:02 GMT+0530 (India Standard Time)|
+|**Generation Date and Time**<br>Sat Sep 07 2024 17:12:39 GMT+0530 (India Standard Time)|
 |**App Generator**<br>@sap/generator-fiori-elements|
 |**App Generator Version**<br>1.14.2|
 |**Generation Platform**<br>Visual Studio Code|
@@ -17,7 +17,7 @@
 |**Enable TypeScript**<br>False|
 |**Add Eslint configuration**<br>False|
 |**Main Entity**<br>Hospital|
-|**Navigation Entity**<br>Files|
+|**Navigation Entity**<br>None|
 
 ## file
 
