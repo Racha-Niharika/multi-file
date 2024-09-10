@@ -7,8 +7,7 @@ using {
 
 entity Files : cuid, managed {
  
-    @title: 'File ID'
-    fid   : Association to Hospital;
+   
     @Core.MediaType: mediaType
     content: LargeBinary;
     @Core.IsMediaType: true
@@ -20,7 +19,7 @@ entity Files : cuid, managed {
     // Association to Bus entity
     
 }
-entity Hospital : cuid , managed  {
+entity Hospital : cuid, managed{
 
     @title: 'HospitalID'
     hospital_id: String(5);
@@ -32,5 +31,5 @@ entity Hospital : cuid , managed  {
     no_of_doctors: Integer;
     @title: 'no of patients'
     no_of_patients: Integer ;
-    Files : Composition of many Files on Files.fid=$self;
+    
 }

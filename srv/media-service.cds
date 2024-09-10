@@ -4,8 +4,7 @@ service Attachments{
     entity Files as projection on db.Files;
    
     entity Hospital as projection on db.Hospital;
-    action Data() returns Boolean;
-  action Doc() returns Boolean;
+    
 }
 
 annotate Attachments.Hospital with @odata.draft.enabled;
@@ -35,10 +34,6 @@ annotate Attachments.Hospital with @(
          {
             Label: 'no_of_patients',
             Value: no_of_patients
-        },
-        {
-             Label:'Files',
-             Value:Files 
         }
     ]
 );
@@ -80,44 +75,3 @@ annotate Attachments.Hospital with @(
     ]
 );
 
-
-
-
-annotate Attachments.Files with @(
-    UI.LineItem: [
-       {
-            $Type:'UI.DataField',
-            Label: 'Content',
-            Value: content
-        },
-        {
-            $Type: 'UI.DataField',
-            Value: fileName,
-            Label: 'File Name'
-        }
-    ],
-    UI.FieldGroup #FileDetails: {
-        $Type: 'UI.FieldGroupType',
-        Data: [
-           {
-            $Type:'UI.DataField',
-            Label: 'Content',
-            Value: content
-        },
-         {
-            $Type:'UI.DataField',
-            Label: 'fileName',
-            Value: fileName
-        }
-        ]
-    },
-    UI.Facets: [
-        {
-            $Type: 'UI.ReferenceFacet',
-            ID: 'relatedFilesFacet',
-            Label: 'Related Files',
-            Target: '@UI.FieldGroup#FileDetails',
-            
-        }
-    ]
-);

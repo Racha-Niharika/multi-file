@@ -21,7 +21,8 @@
         "type": "OData",
         "settings": {
           "annotations": [],
-          "odataVersion": "4.0"
+          "odataVersion": "4.0",
+            "localUri": "localService/metadata.xml"
         }
       }
     }
@@ -132,14 +133,15 @@
               "content": {
                 "body": {
                     "sections": {
-                        "myCustomSection": {
-                            "template": "file.custom.fragment.uploadDoc",
-                            "title": "Upload Files",
-                            "position": {
-                                "placement": "After"
-                                
-                            }
-                        }
+                      "Attachment": {
+                        "template": "file.custom.fragment.uploadDoc",
+                        "position": {
+                          "placement": "After",
+                          "anchor": "GeneratedFacet1"
+                        },
+                        "title": "attachment",
+                        "type": "XMLFragment"
+                      }
                     }
                 }
             }

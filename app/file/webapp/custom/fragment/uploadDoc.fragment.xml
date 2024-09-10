@@ -1,13 +1,12 @@
-<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:upload="sap.m.upload" controllerName="file.controller.app">
-    <App id="app">
-        <pages>
-            <Page id="page" width="200px" height="100px">
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:upload="sap.m.upload">
+   <VBox id="i" >
                 <upload:UploadSet
                     id="uploadSet"
+                    core:require="{ handler: 'file/custom/fragment/uploadDoc'}"
                     instantUpload="false"
                     uploadEnabled="true"
-                    afterItemAdded="onAfterItemAdded"
-                    uploadCompleted="onUploadCompleted"	
+                    afterItemAdded="handler.onAfterItemAdded"
+                    uploadCompleted="handler.onUploadCompleted"	
                     mode="MultiSelect"
 				    multiple="true"			
                     items="{
@@ -22,13 +21,13 @@
                         <!-- Add any toolbar elements here if needed -->
                     </upload:toolbar>
                     <upload:items>
-                        <upload:UploadSetItem
+                        <upload:UploadSetItem id="up"
                             fileName="{fileName}"
                             mediaType="{mediaType}"
                             url="{url}"
                             enabledEdit="false"
                             visibleEdit="false"
-                            openPressed="onOpenPressed"
+                            openPressed="handler.onOpenPressed"
                         >
                             <upload:attributes>
                                 <ObjectAttribute
@@ -49,8 +48,6 @@
                             </upload:attributes>
                         </upload:UploadSetItem>
                     </upload:items>
-                </upload:UploadSet>
-            </Page>
-        </pages>
-    </App>
+                    </upload:UploadSet>
+            </VBox>
 </core:FragmentDefinition>
