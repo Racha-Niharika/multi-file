@@ -30,17 +30,17 @@
                             openPressed="handler.onOpenPressed"
                         >
                             <upload:attributes>
-                                <ObjectAttribute
+                                <ObjectAttribute id="ff"
                                     title="Uploaded By"
                                     text="{createdBy}"
                                     active="false"
                                 />
-                                <ObjectAttribute
+                                <ObjectAttribute id="dd"
                                     title="Uploaded on"
                                     text="{createdAt}"
                                     active="false"
                                 />
-                                <ObjectAttribute
+                                <ObjectAttribute id="d"
                                     title="File Size"
                                     text="{size}"
                                     active="false"
